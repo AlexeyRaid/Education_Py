@@ -21,7 +21,6 @@ employeers = {
     "Оксана Олександрівна": ["Системний адміністратор", 4, "IT-інфраструктура", 4.3, "Linux, Windows Server", 4800]
 }
 
-
 while True:
     choise = input('\n'
                    '\t \t Меню\n'
@@ -81,7 +80,7 @@ while True:
         case '2':
             print('Список співробітників (по алфавіту) \n')
             fio_list = employeers.keys()
-            srtd_fio= sorted(fio_list)
+            srtd_fio = sorted(fio_list)
             for fio in srtd_fio:
                 print(fio)
 
@@ -89,29 +88,27 @@ while True:
             ch_emp = input('Введіть ПІБ працівника для редагування ')
             if ch_emp not in employeers:
                 print('Ой, я не знайшов такого співробітника.... ')
-                break
-            old_emp = employeers[ch_emp]
-            ch3 = int(input('Які дані потрібно замінити? \n'
-                            '1- ПІБ \n'
-                            '2- Посаду \n'
-                            '3- Досвід роботи \n'
-                            '4- Портфоліо \n'
-                            '5- Коефіцієнт ефективності \n'
-                            '6- Стек технологій \n'
-                            '7- Зарплату \n'
-                            '8- Вихід \n'))
-            new_data = input('Введіть оновлені дані \n')
-            if ch3 == 1:
+            else:
+                old_emp = employeers[ch_emp]
+                ch3 = int(input('Які дані потрібно замінити? \n'
+                                '1- ПІБ \n'
+                                '2- Посаду \n'
+                                '3- Досвід роботи \n'
+                                '4- Портфоліо \n'
+                                '5- Коефіцієнт ефективності \n'
+                                '6- Стек технологій \n'
+                                '7- Зарплату \n'
+                                '8- Вихід \n'))
+                new_data = input('Введіть оновлені дані \n')
+                if ch3 == 1:
                     employeers.pop(ch_emp)
-                    employeers.update({new_data: [old_emp]})
+                    employeers.update({new_data: old_emp})
                     print('Дані замінено на: \n')
                     print(f'Прізвище {new_data}')
                     emp_list = employeers.get(new_data)
-                    print(emp_list)
                     print(
                         f' Посада: {emp_list[0]} \n Стаж роботи: {emp_list[1]} \n Портфоліо: {emp_list[2]} \n Коефіцієнт ефективності: {emp_list[3]} \n Стек технологій: {emp_list[4]} \n Зарплата: {emp_list[5]}')
-                    break
-            elif ch3  in (2, 3,4, 5, 6, 7):
+                elif ch3 in (2, 3, 4, 5, 6, 7):
                     employeers[ch_emp][ch3 - 1] = new_data
                     print('Дані замінено на: \n')
                     print(f'Прізвище {ch_emp}')
@@ -129,10 +126,3 @@ while True:
 
         case '5':
             exit()
-
-
-
-
-
-
-
