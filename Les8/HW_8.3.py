@@ -17,7 +17,7 @@ def minus(a, b) -> float:
 
 def divide(a, b) -> float:
     if b == 0:
-        return print("Ділення на нуль не можливе")
+        return "Ділення на нуль не можливе"
 
     else:
         return a / b
